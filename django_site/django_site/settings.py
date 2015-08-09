@@ -75,6 +75,7 @@ from django.utils.translation import ugettext_lazy as _
 #     ),
 # )
 
+
 # Setting to turn on featured images for blog posts. Defaults to False.
 #
 # BLOG_USE_FEATURED_IMAGE = True
@@ -240,6 +241,7 @@ TEMPLATE_CONTEXT_PROCESSORS = (
     "django.core.context_processors.tz",
     "mezzanine.conf.context_processors.settings",
     "mezzanine.pages.context_processors.page",
+    "custom.context_parsers.all_gallery_images",
 )
 
 # List of middleware classes to use. Order is important; in the request phase,

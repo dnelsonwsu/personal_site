@@ -29,8 +29,17 @@ ul, ol {
   margin:-5px 0;
 }
 
+.title-part-one {
+  color: #FFFFFF;
+}
+
+.title-part-two {
+  color: #FFDA58;
+}
+
 .navbar-brand {
   font-size: 32px;
+  display:inline;
 }
 
 .navbar-text {
