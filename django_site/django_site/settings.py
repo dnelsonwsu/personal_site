@@ -3,7 +3,6 @@ from __future__ import absolute_import, unicode_literals
 import os
 from django.utils.translation import ugettext_lazy as _
 
-
 ######################
 # MEZZANINE SETTINGS #
 ######################
@@ -75,6 +74,20 @@ from django.utils.translation import ugettext_lazy as _
 #     ),
 # )
 
+
+EXTRA_MODEL_FIELDS = (
+    # Four-item sequence for one field injected.
+    (
+        # Dotted path to field.
+        "mezzanine.galleries.models.GalleryImage.created",
+        # Dotted path to field class.
+        "django.db.models.DateTimeField",
+        # Positional args for field class.
+        ("created_on",),
+        # Keyword args for field class.
+        {"auto_now_add": True,},
+    ),
+)
 
 # Setting to turn on featured images for blog posts. Defaults to False.
 #
