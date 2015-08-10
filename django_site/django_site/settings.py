@@ -155,9 +155,9 @@ FILE_UPLOAD_PERMISSIONS = 0o644
 DATABASES = {
     "default": {
         # Add "postgresql_psycopg2", "mysql", "sqlite3" or "oracle".
-        "ENGINE": "django.db.backends.",
+        "ENGINE": "django.db.backends.sqlite3",
         # DB name or path to database file if using sqlite3.
-        "NAME": "",
+        "NAME": "db.sqlite3",
         # Not used with sqlite3.
         "USER": "",
         # Not used with sqlite3.
@@ -335,3 +335,9 @@ except ImportError:
     pass
 else:
     set_dynamic_settings(globals())
+
+
+AWS_HEADERS = {  # see http://developer.yahoo.com/performance/rules.html#expires
+    'Expires': 'Thu, 31 Dec 2099 20:00:00 GMT',
+    'Cache-Control': 'max-age=94608000',
+}
