@@ -14,6 +14,7 @@
 {{ page.gallery.content|richtext_filters|safe }}
 {% endeditable %}
 
+<div class="container-fluid">
 <div id="portfoliowrap">
         <div class="portfolio-centered">
             <div class="recentitems portfolio">
@@ -21,7 +22,7 @@
 				{% for image in images %}
 				<div class="portfolio-item graphic-design">
 					<div class="he-wrap tpl6">
-					<img src="{{ MEDIA_URL }}{% thumbnail image.file 600 450 %}" alt="">
+					<img src="{{ MEDIA_URL }}{% thumbnail image.file 400 300 %}" alt="">
 						<div class="he-view">
 							<div class="bg a0" data-animate="fadeIn">
                                 <h3 class="a1" data-animate="fadeInDown">{{image.description}}</h3>
@@ -36,7 +37,7 @@
 			</div>
 		</div>
 </div>	
-
+</div>
 
 {% endblock %}
 
