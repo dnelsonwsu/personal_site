@@ -4,41 +4,47 @@
 
 
 
+
+
+
+
 {% block left_wrapper%}
 {% endblock %}
 
-{% block main %}
-{{ block.super }}
+{% block main_width %}12 {% endblock %}
 
-{% editable page.gallery.content %}
-{{ page.gallery.content|richtext_filters|safe }}
-{% endeditable %}
+{% block all_content%}
+{{super}}
 
-<div class="container-fluid">
-<div id="portfoliowrap">
-        <div class="portfolio-centered">
-            <div class="recentitems portfolio">
-			    {% with page.gallery.images.all as images %}
-				{% for image in images %}
-				<div class="portfolio-item graphic-design">
-					<div class="he-wrap tpl6">
-					<img src="{{ MEDIA_URL }}{% thumbnail image.file 400 300 %}" alt="">
-						<div class="he-view">
-							<div class="bg a0" data-animate="fadeIn">
-                                <h3 class="a1" data-animate="fadeInDown">{{image.description}}</h3>
-                                <a href="{{ MEDIA_URL }}{{ image.file }}" class="dmbutton a2" data-animate="fadeInUp"><i class="fa fa-search"></i></a>
-                                <a href="#" class="dmbutton a2" data-animate="fadeInUp"><i class="fa fa-link"></i></a>
-                        	</div><!-- he bg -->
-						</div><!-- he view -->		
-					</div><!-- he wrap -->
-				</div><!-- end col-12 -->
-               {% endfor %}
-			   {% endwith %}
+ <!--<div class="col-md-12" > -->
+<div class="container">
+	<div id="portfoliowrap">
+			<div class="portfolio-centered">
+				<div class="gallery-text">{% editable page.gallery.content %}
+				{{ page.gallery.content|richtext_filters|safe }}
+				{% endeditable %}
+				</div>
+				<div class="recentitems portfolio">
+					{% with page.gallery.images.all as images %}
+					{% for image in images %}
+					<div class="portfolio-item graphic-design">
+						<div class="he-wrap tpl6 gallery-image">
+						<img src="{{ MEDIA_URL }}{% thumbnail image.file 400 300 %}" alt="">
+							<div class="he-view">
+								<div class="bg a0" data-animate="fadeIn">
+									<h3 class="a1" data-animate="fadeInDown">{{image.description}}</h3>
+									<a href="{{ MEDIA_URL }}{{ image.file }}" class="dmbutton a2" data-animate="fadeInUp"><i class="fa fa-search"></i></a>
+
+								</div><!-- he bg -->
+							</div><!-- he view -->
+						</div><!-- he wrap -->
+					</div><!-- end col-12 -->
+				   {% endfor %}
+				   {% endwith %}
+				</div>
 			</div>
-		</div>
-</div>	
-</div>
-
+	</div></div>
+  <!--</div>-->
 {% endblock %}
 
 {% block right_wrapper%}

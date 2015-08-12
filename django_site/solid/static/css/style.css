@@ -365,7 +365,7 @@ a:focus {
 #blue {
 	background: #00b3fe;
 	margin-top: 60px;
-	margin-bottom: 60px;
+	margin-bottom: 0px;
 	padding-top: 25px;
 	padding-bottom: 25px;
 }
@@ -457,4 +457,12 @@ csmall2 {
 .share i {
 	padding-right: 15px;
 	font-size: 18px;
+}
+
+.gallery-text{
+	margin-bottom:60px;
+}
+
+.gallery-image{
+	margin: 5px;
 }
