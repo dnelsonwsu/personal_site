@@ -75,19 +75,19 @@ from django.utils.translation import ugettext_lazy as _
 # )
 
 
-EXTRA_MODEL_FIELDS = (
-    # Four-item sequence for one field injected.
-    (
-        # Dotted path to field.
-        "mezzanine.galleries.models.GalleryImage.created",
-        # Dotted path to field class.
-        "django.db.models.DateTimeField",
-        # Positional args for field class.
-        ("created_on",),
-        # Keyword args for field class.
-        {"auto_now_add": True,},
-    ),
-)
+#EXTRA_MODEL_FIELDS = (
+#    # Four-item sequence for one field injected.
+#    (
+#        # Dotted path to field.
+#        "mezzanine.galleries.models.GalleryImage.created",
+#        # Dotted path to field class.
+#        "django.db.models.DateTimeField",
+#        # Positional args for field class.
+#        ("created_on",),
+#        # Keyword args for field class.
+#        {"auto_now_add": True, "null": True},
+#    ),
+#)
 
 # Setting to turn on featured images for blog posts. Defaults to False.
 #
@@ -237,7 +237,8 @@ INSTALLED_APPS = (
     "mezzanine.galleries",
     "mezzanine.twitter",
     # "mezzanine.accounts",
-    "mezzanine.mobile",
+    #"mezzanine.mobile",
+    "imageuploader",
 )
 
 # List of processors used by RequestContext to populate the context.
@@ -341,3 +342,5 @@ AWS_HEADERS = {  # see http://developer.yahoo.com/performance/rules.html#expires
     'Expires': 'Thu, 31 Dec 2099 20:00:00 GMT',
     'Cache-Control': 'max-age=94608000',
 }
+
+TINYMCE_SETUP_JS = "/static/mezzanine/tinymce/tinymceconfig.js"

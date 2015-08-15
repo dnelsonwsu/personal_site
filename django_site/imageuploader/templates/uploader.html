@@ -1,0 +1,55 @@
+{% load staticfiles %}
+
+<script src="{% static "mezzanine/js/jquery-1.7.2.min.js" %}" type="text/javascript"></script>
+
+<form id="my_form" action="/uploadimage/"  method="post" enctype="multipart/form-data" style="overflow:hidden">
+    {% csrf_token %}
+    <input id="imageuploader" name="image" type="file" onchange="$('#my_form').submit();this.value='';" >
+</form>
+
+
+<script>
+
+
+
+</script>
+
+
+
+
+
+<!--
+ // Provide file and text for the link dialog
+                if (meta.filetype == 'file') {
+                    callback('mypage.html', {text: 'My text'});
+                }
+
+                // Provide image and alt text for the image dialog
+                if (meta.filetype == 'image') {
+
+                    if ($('#form_target').length==0)
+                    {
+                        $('body').append("<iframe id=\"form_target\" name=\"form_target\" style=\"display:none\">script type=\"text/javascript\" src=\"/static/mezzanine/js/jquery-1.7.2.min.js\"></script></iframe><form id=\"my_form\" action=\"/uploadimage/\" target=\"form_target\" method=\"post\" enctype=\"multipart/form-data\" style=\"width:0px;height:0;overflow:hidden\"><input name=\"image\" type=\"file\" onchange=\"jQuery(function($) {   $('#my_form').submit()   });this.value='';\"></form>");
+                        jQuery.globalEval("jQuery(function($) { $('#my_form').ajaxForm({url: 'uploadimage', type: 'post', success: function(responseText, statusText, xhr, $form){alert('!'); console.log('!');}})   });");
+                        jQuery.globalEval("function getCookie(name){var cookieValue=null;if(document.cookie&&document.cookie!=''){var cookies=document.cookie.split(';');for(var i=0;i<cookies.length;i++){var cookie=jQuery.trim(cookies[i]);if(cookie.substring(0,name.length+1)==(name+'=')){cookieValue=decodeURIComponent(cookie.substring(name.length+1));break}}}return cookieValue}var csrftoken=getCookie('csrftoken');function csrfSafeMethod(method){return(/^(GET|HEAD|OPTIONS|TRACE)$/.test(method))}jQuery.ajaxSetup({crossDomain:false,beforeSend:function(xhr,settings){if(!csrfSafeMethod(settings.type)){xhr.setRequestHeader(\"X-CSRFToken\",csrftoken)}}});");
+                    }
+                    $('#my_form').submit(function(){console.log("!");});
+                    $('#my_form input').click();
+
+                }
+
+
+
+
+$('#myform').submit("click","div.fichero",function(){
+  item_url = $(this).data("src");
+  var args = top.tinymce.activeEditor.windowManager.getParams();
+  win = (args.window);
+  input = (args.input);
+  win.document.getElementById(input).value = item_url;
+  top.tinymce.activeEditor.windowManager.close();
+});
+
+
+
+-->

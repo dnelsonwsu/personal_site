@@ -7,17 +7,22 @@ from django.contrib import admin
 from mezzanine.core.views import direct_to_template
 from mezzanine.conf import settings
 
-
 admin.autodiscover()
 
 # Add the urlpatterns for any custom Django applications here.
 # You can also change the ``home`` view to add your own functionality
 # to the project's homepage.
 
+
 urlpatterns = i18n_patterns("",
     # Change the admin prefix here to use an alternate URL for the
     # admin interface, which would be marginally more secure.
     ("^admin/", include(admin.site.urls)),
+
+    ('uploadimage/', 'imageuploader.views.imageupload'),
+    ('uploader.html', 'imageuploader.views.uploader'),
+
+
 )
 
 if settings.USE_MODELTRANSLATION:
