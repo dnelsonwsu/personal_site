@@ -239,6 +239,7 @@ INSTALLED_APPS = (
     # "mezzanine.accounts",
     #"mezzanine.mobile",
     "imageuploader",
+    "custom"
 )
 
 # List of processors used by RequestContext to populate the context.
@@ -343,4 +344,4 @@ AWS_HEADERS = {  # see http://developer.yahoo.com/performance/rules.html#expires
     'Cache-Control': 'max-age=94608000',
 }
 
-TINYMCE_SETUP_JS = "/static/mezzanine/tinymce/tinymceconfig.js"
+TINYMCE_SETUP_JS = STATIC_URL + "imageuploader/tinymceconfig.js"
