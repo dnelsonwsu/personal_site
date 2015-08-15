@@ -4,8 +4,17 @@ from django.conf.urls import patterns, include, url
 from django.conf.urls.i18n import i18n_patterns
 from django.contrib import admin
 
+from django.contrib.sitemaps import GenericSitemap
+from django.contrib.sitemaps.views import sitemap
+from mezzanine.blog.models import BlogPost
+from mezzanine.pages.models import RichTextPage
+from mezzanine.galleries.models import Gallery
+
+
 from mezzanine.core.views import direct_to_template
 from mezzanine.conf import settings
+
+from mezzanine.core.managers import SearchableQuerySet
 
 admin.autodiscover()
 
@@ -13,6 +22,24 @@ admin.autodiscover()
 # You can also change the ``home`` view to add your own functionality
 # to the project's homepage.
 
+# Sitemaps
+# Define information to be published in dictionaries
+blog_dict = {
+    'queryset': BlogPost.objects.published(),
+    'date_field': 'created',
+}
+page_dict = {
+    'queryset': RichTextPage.objects.published().exclude(login_required=True)
+}
+gallery_dict = {
+    'queryset': Gallery.objects.published(),
+}
+
+sitemaps = {
+    'pages': GenericSitemap(page_dict, priority=0.6),
+    'blog': GenericSitemap(blog_dict, priority=0.6),
+    'gallery': GenericSitemap(gallery_dict, priority=0.6),
+}
 
 urlpatterns = i18n_patterns("",
     # Change the admin prefix here to use an alternate URL for the
@@ -22,6 +49,7 @@ urlpatterns = i18n_patterns("",
     ('uploadimage/', 'imageuploader.views.imageupload'),
     ('uploader.html', 'imageuploader.views.uploader'),
 
+    ('sitemap\.xml$', 'django.contrib.sitemaps.views.sitemap', {'sitemaps': sitemaps}),
 
 )
 
